@@ -1,0 +1,44 @@
+# Introduction
+
+The variables used and the functions called by the tidy.r are described in this document, the objective of the tidy.r code is to perform analysis and achieve the objectives mentioned under objectives section in README.md
+
+Libraries used: dplyr is used apart from the standard libraries loaded by default in R Studio
+
+Datasets: Datasets are downloaded from the link http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones 
+
+#Funcations used:
+setwd: to set the path of the working directory
+read.table: to read the datasets in a tabular format
+names: to set the names of the dataset
+which(): to find the columns(number) which makes the condition within the function braces
+duplicated: to find the duplicates in the datasets
+mutate: to perform transformation of the dataframe used to add a new column in our analysis
+cbind: to add vectors as a column to the dataframe
+rbind: to combine two dataframes as rows
+grep: Finds the pattern in the dataframe based on the condition given in the braces
+merge: to join two data frames based on a common vector
+select:to select vectors or part of a data frame
+group_by: to group the data frame based on the vectors or elements
+summarise_each: to perform an opeartion on all the columns of the dataframe
+
+# Dataframes used
+
+x_test: to read the x dirction test data
+y_test: to read the y direction test data
+sub_test: to read the subjects test data
+x_train: to read the x dirction train data
+y_train: to read the y direction train data
+sub_train: to read the subjects training data
+features: to read the features details
+Test_Set: has the complete test data
+Train_Set: has the complete train data
+Activity_Set: has the complete mean and standard deviation data
+average_set: has the complete average dataset grouped at an activity and subject level 
+
+  
+
+
+
+
+
+ 

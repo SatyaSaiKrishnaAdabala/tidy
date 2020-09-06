@@ -55,17 +55,31 @@ Meanstdset <- select(Activity_Set,DataType,Activity_ID,Subject,colnames(Activity
 # Uses descriptive activity names to name the activities in the data set
 
 activity_label <- read.table("C:/Users/admin/Downloads/getdata_projectfiles_UCI HAR Dataset (1)/UCI HAR Dataset/activity_labels.txt",header = F)
+Meanstdset <- mutate(Meanstdset,Activity_ID2 = Meanstdset$Activity_ID) 
+head(Meanstdset,1)
+Meanstdset <- merge(Meanstdset,activity_label,by.x ="Activity_ID2" ,by.y = "V1")
+head(Meanstdset,1)
 
-Activity_Set <- mutate(Activity_Set,Activity_ID2 = Activity_Set$Activity_ID) 
-head(Activity_Set,1)
-Activity_Set <- merge(Activity_Set,activity_label,by.x ="Activity_ID2" ,by.y = "V1")
-head(Activity_Set,1)
+# .Appropriately labels the data set with descriptive variable names.
+nameset <- gsub ("tBody", "time-Body", names(Meanstdset), ignore.case=FALSE)
+nameset <- gsub ("tGravity", "time-Gravity", nameset, ignore.case=FALSE)
+nameset <- gsub ("Mag", "Magnitude", nameset, ignore.case=FALSE)
+nameset <- gsub ("Gyro", "Gyroscope", nameset, ignore.case=FALSE)
+nameset <- gsub ("Acc", "Accelerometer", nameset, ignore.case=FALSE)
+nameset <- gsub ("fBody", "fastFourierTransform-Body", nameset, ignore.case=FALSE)
+nameset <- gsub ("Freq", "Frequency", nameset, ignore.case=FALSE)
+nameset <- gsub ("BodyBody", "Body", nameset, ignore.case=FALSE)
+
+names(Meanstdset) <- nameset
+head(Meanstdset,1)
 
 # From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-average_set <- Activity_Set %>% select(-DataType) %>% group_by(Subject,Activity_ID,V2) %>% summarise_each(funs(mean))
+average_set <- Meanstdset %>% select(-DataType) %>% group_by(Subject,Activity_ID,V2) %>% summarise_each(funs(mean))
 
-  
+head(average_set,1)
+
+write.table(average_set, file="avedata.txt", row.names=FALSE, col.names=TRUE)
 
 
 

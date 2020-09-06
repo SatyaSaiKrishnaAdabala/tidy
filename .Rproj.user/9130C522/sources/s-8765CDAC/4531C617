@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1599355665188.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3023376371",
+    "id" : "4531C617",
+    "lastKnownWriteTime" : 1599354999,
+    "last_content_update" : 1599354999,
+    "path" : "~/GitHub/tidy/tidy/tidy/run_analysis.R.R",
+    "project_path" : "run_analysis.R.R",
+    "properties" : {
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
